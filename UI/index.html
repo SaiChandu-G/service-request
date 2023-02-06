@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css" />
+    <title>HRM</title>
+</head>
+
+<body>
+    <div class="row">
+        <div class="navbar navbar-expand d-flex flex-column align-items-start" id="sidebar" style="flex: 1;">
+            <a href="#" class="navbar-brand text-light">
+                <div class="display-6 font-weight-bold" style="margin-left: 0.9em">Arshaa</div>
+            </a>
+            <ul class="navbar-nav w-100">
+                <li class="nav-item w-100">
+                    <a href="#dashboard" class="nav-link text-light">My Profile</a>
+                </li>
+                <li class="nav-item w-100">
+                    <a href="#service-request" class="nav-link text-light">Service Request</a>
+                </li>
+                <li class="nav-item  w-100">
+                    <a href="#time-sheet" class="nav-link text-light">Time Sheet</a>
+                </li>
+                <li class="nav-item  w-100">
+                    <a href="#tasks" class="nav-link text-light">Tasks</a>
+                </li>
+                <li class="nav-item  w-100">
+                    <a href="#leaves" class="nav-link text-light">Applied Leaves</a>
+                </li>
+                <li class="nav-item w-100">
+                    <a href="#logout" class="nav-link text-light">Logout</a>
+                </li>
+            </ul>
+        </div>
+        <div class="content-section" style="flex: 3;">
+            <div class="topbar">
+                <h3>Chandu sai</h3>
+            </div>
+            <div class="request-form">
+                <div class="title">Create a Request</div>
+                <div class="fields">
+                    <div class="input-control">
+                        <input type="text" id="description" onchange="handleDescription(this.value)"
+                            placeholder="Enter description">
+                        <label id="descriptionError"></label>
+                    </div>
+                    <div class="input-control">
+                        <input type="text" id="priorityLevel" onchange="handlePriority(this.value)"
+                            placeholder="Enter priority level">
+                        <label id="priorityLevelError"></label>
+                    </div>
+                    <div class="input-control">
+                        <input type="text" id="type" onchange="handleIssueType(this.value)"
+                            placeholder="Enter issue type">
+                        <label id="issueTypeError"></label>
+                    </div>
+                </div>
+                <button class="create">Submit Request</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script defer src="index.js"></script>
+</body>
+
+</html>
