@@ -14,7 +14,10 @@ const issueTypeError = document.getElementById("issueTypeError");
 // Request Object
 const requestObj = {};
 
-button.addEventListener("click", e => {
+// employee ID
+const employeeId = 1;
+
+button.addEventListener("click", (e) => {
     e.preventDefault();
     if (description.value === "") {
         descriptionError.innerText = "Please enter description";
@@ -28,10 +31,29 @@ button.addEventListener("click", e => {
         issueTypeError.innerText = "Please enter issue type";
         return;
     }
+
+    let url = "http://localhost:9999/request/create?";
+
     requestObj.description = description.value;
     requestObj.priorityLevel = priorityLevel.value;
     requestObj.issueType = issueType.value;
-    console.log(requestObj);
+
+    const newRequestObj = Object.assign({ employeeId: employeeId }, requestObj);
+
+    // log object to console
+    console.log(newRequestObj);
+
+    Object.keys(newRequestObj).forEach((key) => {
+        url += key + "=" + newRequestObj[key] + "&";
+    });
+
+    fetch(url, {
+        method: "POST",
+    })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error(error));
+
     description.value = "";
     priorityLevel.value = "";
     issueType.value = "";
@@ -39,13 +61,12 @@ button.addEventListener("click", e => {
 
 const handleDescription = (val) => {
     if (val.trim().length > 0) descriptionError.innerText = "";
-}
+};
 
 const handlePriority = (val) => {
     if (val.trim().length > 0) priorityLevelError.innerText = "";
-}
+};
 
 const handleIssueType = (val) => {
     if (val.trim().length > 0) issueTypeError.innerText = "";
-}
-
+};

@@ -19,19 +19,24 @@ public class RequestServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String description = request.getParameter("description");
-		String priority = request.getParameter("priority");
+		String priority = request.getParameter("priorityLevel");
 		String issueType = request.getParameter("issueType");
 		int employeeId = Integer.parseInt(request.getParameter("employeeId"));
 
+		response.addHeader("Access-Control-Allow-Origin", "*");
+		response.setContentType("application/json");
+
 		ServiceRequest serviceRequest = new ServiceRequest(description, priority, issueType);
-//		Employee employee = new Employee(1, "Chandu sai", "sai@gmail.com", "Nellore", 9676351831L, "software developer",
-//				serviceRequest);
 
 		ServiceRequestDao dao = new ServiceRequestDao();
 		String result = dao.saveRequest(serviceRequest, employeeId);
 
+		Response r = new Response();
+		r.setMessage(result);
+		r.setStatus(true);
+
 		PrintWriter writer = response.getWriter();
-		writer.print(result);
+		writer.print(r);
 
 	}
 }

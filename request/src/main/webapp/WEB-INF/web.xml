@@ -13,5 +13,4 @@
 		<servlet-name>service</servlet-name>
 		<url-pattern>/create</url-pattern>
 	</servlet-mapping>
-
 </web-app>
