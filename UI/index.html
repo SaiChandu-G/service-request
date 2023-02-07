@@ -16,56 +16,63 @@
 </head>
 
 <body>
-    <div class="row">
-        <div class="navbar navbar-expand d-flex flex-column align-items-start" id="sidebar" style="flex: 1;">
-            <a href="#" class="navbar-brand text-light">
-                <div class="display-6 font-weight-bold" style="margin-left: 0.9em">Arshaa</div>
-            </a>
-            <ul class="navbar-nav w-100">
-                <li class="nav-item w-100">
-                    <a href="#dashboard" class="nav-link text-light">My Profile</a>
-                </li>
-                <li class="nav-item w-100">
-                    <a href="#service-request" class="nav-link text-light">Service Request</a>
-                </li>
-                <li class="nav-item  w-100">
-                    <a href="#time-sheet" class="nav-link text-light">Time Sheet</a>
-                </li>
-                <li class="nav-item  w-100">
-                    <a href="#tasks" class="nav-link text-light">Tasks</a>
-                </li>
-                <li class="nav-item  w-100">
-                    <a href="#leaves" class="nav-link text-light">Applied Leaves</a>
-                </li>
-                <li class="nav-item w-100">
-                    <a href="#logout" class="nav-link text-light">Logout</a>
-                </li>
-            </ul>
-        </div>
-        <div class="content-section" style="flex: 3;">
-            <div class="topbar">
-                <h3>Chandu sai</h3>
+    <div class="column">
+        <div class="topbar">
+            <div style="flex : 1; margin-top: 0.5em;">
+                <a href="#" class=" display-6 font-weight-bold text-light"
+                    style="margin-left: 0.8em; text-decoration: none;">Arshaa</a>
             </div>
-            <div class="request-form">
-                <div class="title">Create a Request</div>
-                <div class="fields">
-                    <div class="input-control">
-                        <input type="text" id="description" onchange="handleDescription(this.value)"
-                            placeholder="Enter description">
-                        <label id="descriptionError"></label>
+            <!-- <a href="#" class="navbar-brand text-light" style="flex : 1;">
+                <div class="display-6 font-weight-bold" style="margin-left: 0.8em; margin-top: 0.3em;">Arshaa</div>
+            </a> -->
+            <h4 style="cursor : pointer">Chandu sai</h4>
+        </div>
+        <div class="sb">
+            <div class="navbar" id="sidebar" style="flex: 1;">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#profile" class="nav-link text-light">My Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#service-request" class="nav-link text-light">Service Request</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#time-sheet" class="nav-link text-light">Time Sheet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#tasks" class="nav-link text-light">Tasks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#leaves" class="nav-link text-light">Applied Leaves</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#logout" class="nav-link text-light">Logout</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <div class="request-form">
+                    <div class="title">Create a Request</div>
+                    <div class="fields">
+                        <div class="input-control">
+                            <input type="text" id="description" onchange="handleDescription(this.value)"
+                                placeholder="Enter description">
+                            <label id="descriptionError"></label>
+                        </div>
+                        <div class="input-control">
+                            <input type="text" id="priorityLevel" onchange="handlePriority(this.value)"
+                                placeholder="Enter priority level">
+                            <label id="priorityLevelError"></label>
+                        </div>
+                        <div class="input-control">
+                            <input type="text" id="type" onchange="handleIssueType(this.value)"
+                                placeholder="Enter issue type">
+                            <label id="issueTypeError"></label>
+                        </div>
                     </div>
-                    <div class="input-control">
-                        <input type="text" id="priorityLevel" onchange="handlePriority(this.value)"
-                            placeholder="Enter priority level">
-                        <label id="priorityLevelError"></label>
-                    </div>
-                    <div class="input-control">
-                        <input type="text" id="type" onchange="handleIssueType(this.value)"
-                            placeholder="Enter issue type">
-                        <label id="issueTypeError"></label>
-                    </div>
+                    <button class="create">Submit Request</button>
                 </div>
-                <button class="create">Submit Request</button>
             </div>
         </div>
     </div>

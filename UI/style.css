@@ -8,19 +8,31 @@ body {
     min-height: 100vh;
     background-color: rgb(240, 228, 223);
     /* color: #555; */
-    overflow: hidden;
+    /* overflow: hidden; */
     font-family: 'Lato', sans-serif;
 }
 
-.row {
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    /* position: fixed; */
+}
+
+a {
+    cursor: pointer;
+}
+
+.sb {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin: 0;
-    padding: 0;
-    /* position: fixed; */
 }
 
 ul {
@@ -28,7 +40,7 @@ ul {
     flex-direction: column;
     flex-wrap: wrap;
     margin-top: 25px;
-    margin-left: 1.5em;
+    margin-left: 1em;
     gap: 1.5em;
 }
 
@@ -39,12 +51,12 @@ ul {
     flex-wrap: wrap;
     flex-direction: column;
     background-color: rgb(236, 102, 57);
-    transition: 0.7s;
-    overflow: hidden;
+    transition: 0.5s;
+    /* overflow: hidden; */
 }
 
 .nav-link {
-    font-size: 1.25em
+    font-size: 1.25em;
 }
 
 .nav-link:active,
@@ -58,30 +70,35 @@ ul {
     width: 100vh;
     height: 100vh;
     display: flex;
+    justify-content: center;
+    position: relative;
+    /* display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2em;
+    gap: 2em; */
     /* padding-top: 5px; */
 }
 
 .topbar {
     background-color: #df9877;
     color: white;
-    height: 100px;
+    height: 80px;
     width: 100%;
-    margin-top: 0;
-    margin-left: 0%;
-    text-align: right;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-h3 {
-    margin-top: 25px;
+h4 {
+    margin-top: 20px;
     margin-right: 10px;
 }
 
 .request-form {
+    margin-top: 10%;
+    margin-left: 30%;
     width: 430px;
     height: 580px;
     padding: 60px 35px 35px 35px;
