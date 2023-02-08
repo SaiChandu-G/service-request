@@ -8,11 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 public class RequestServlet extends HttpServlet {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -25,6 +24,8 @@ public class RequestServlet extends HttpServlet {
 
 		response.addHeader("Access-Control-Allow-Origin", "*");
 		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter writer = response.getWriter();
 
 		ServiceRequest serviceRequest = new ServiceRequest(description, priority, issueType);
 
@@ -35,8 +36,10 @@ public class RequestServlet extends HttpServlet {
 		r.setMessage(result);
 		r.setStatus(true);
 
-		PrintWriter writer = response.getWriter();
-		writer.print(r);
+		Gson gson = new Gson();
+		String jsonString = gson.toJson(r);
+
+		writer.print(jsonString);
 
 	}
 }

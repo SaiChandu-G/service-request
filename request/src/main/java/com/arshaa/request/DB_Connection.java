@@ -13,11 +13,11 @@ public class DB_Connection {
 
 	public static Connection getConnection() {
 		Connection con = null;
-//		try {
-//			Class.forName(DB_DRIVER);
-//		} catch (ClassNotFoundException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			Class.forName(DB_DRIVER);
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		}
 		try {
 			con = DriverManager.getConnection(DB_URL, DB_UNAME, DB_PASS);
 		} catch (SQLException e) {

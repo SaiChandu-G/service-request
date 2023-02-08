@@ -32,7 +32,7 @@ button.addEventListener("click", (e) => {
         return;
     }
 
-    let url = "http://localhost:9999/request/create?";
+    let url = "http://localhost:10000/request/create?";
 
     requestObj.description = description.value;
     requestObj.priorityLevel = priorityLevel.value;
@@ -51,7 +51,11 @@ button.addEventListener("click", (e) => {
         method: "POST",
     })
         .then((response) => response.json())
-        .then((data) => console.log(data))
+        .then((data) => {
+            if (data.status) {
+                alert(data.message);
+            }
+        })
         .catch((error) => console.error(error));
 
     description.value = "";
