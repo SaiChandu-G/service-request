@@ -74,3 +74,7 @@ const handlePriority = (val) => {
 const handleIssueType = (val) => {
     if (val.trim().length > 0) issueTypeError.innerText = "";
 };
+
+
+
+
