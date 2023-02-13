@@ -5,12 +5,33 @@
 <web-app>
 	<display-name>Employee Service Request</display-name>
 	<servlet>
-		<servlet-name>service</servlet-name>
-		<servlet-class>com.arshaa.request.RequestServlet</servlet-class>
+		<servlet-name>createRequest</servlet-name>
+		<servlet-class>com.arshaa.request.ServiceRequestServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>service</servlet-name>
+		<servlet-name>createRequest</servlet-name>
 		<url-pattern>/create</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>getRequests</servlet-name>
+		<servlet-class>com.arshaa.request.AllRequestsServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>getRequests</servlet-name>
+		<url-pattern>/requests</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>updateRequest</servlet-name>
+		<servlet-class>com.arshaa.request.UpdateRequestServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>updateRequest</servlet-name>
+		<url-pattern>/request</url-pattern>
+	</servlet-mapping>
+
 </web-app>
