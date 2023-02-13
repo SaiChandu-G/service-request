@@ -24,7 +24,7 @@
             </div>
             <h4 style="cursor: pointer">Chandu sai</h4>
         </div>
-        <div class="sb">
+        <!-- <div class="sb">
             <div class="navbar" id="sidebar" style="flex: 1">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -46,22 +46,33 @@
                         <a href="#logout" class="nav-link text-light">Logout</a>
                     </li>
                 </ul>
-            </div>
+            </div> -->
 
-            <div class="content-section">
-                <table id="myTable">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Description</th>
-                            <th>Priority Level</th>
-                            <th>Issue Type</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+        <div class="content-section">
+            <table id="myTable">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Description</th>
+                        <th>Priority Level</th>
+                        <th>Issue Type</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button id="myBtn">Open Modal</button>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Here is some sample text in the modal.</p>
+                </div>
             </div>
         </div>
+    </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"

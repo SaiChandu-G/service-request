@@ -33,25 +33,11 @@ public class UpdateRequestServlet extends HttpServlet {
 
 		UpdateRequestDTO requestDTO = new UpdateRequestDTO(description, priority, issueType);
 		UpdateRequestDAO updateDAO = new UpdateRequestDAO();
-		//UpdateResponse updateResponse = sendResponse(requestDTO, id, employeeId);
-		 UpdateResponse updateResponse =  updateDAO.updateRequest(requestDTO, id, employeeId);
-		
+		UpdateResponse updateResponse = updateDAO.updateRequest(requestDTO, id, employeeId);
 		gson = new Gson();
 		jsonResponse = gson.toJson(updateResponse);
 		writer.print(jsonResponse);
 
 	}
-
-//	private UpdateResponse sendResponse(UpdateRequestDTO requestDTO, int id, int employeeId) {
-//		UpdateRequestDAO updateDAO = new UpdateRequestDAO();
-//		UpdateResponse response = new UpdateResponse();
-//		if (!updateDAO.updateRequest(requestDTO, id, employeeId)) {
-//			response.setStatus(false);
-//			response.setMessage("Cannot Updated Service Request");
-//		}
-//		response.setStatus(true);
-//		response.setMessage("Request Updated Successful");
-//		return response;
-//	}
 
 }

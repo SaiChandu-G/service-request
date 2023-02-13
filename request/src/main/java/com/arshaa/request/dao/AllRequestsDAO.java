@@ -21,13 +21,12 @@ public class AllRequestsDAO {
 		ServiceRequest request = null;
 		String getAllRequestsQuery = "select * from  service_request";
 		try (Connection connection = getConnection()) {
-			try (PreparedStatement ps = connection.prepareStatement(getAllRequestsQuery)) {
-				ResultSet rs = ps.executeQuery();
-				while (rs.next()) {
-					request = new ServiceRequest(rs.getInt("id"), rs.getString("description"), rs.getString("priority"),
-							rs.getString("issue_type"));
-					requests.add(request);
-				}
+			PreparedStatement ps = connection.prepareStatement(getAllRequestsQuery);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				request = new ServiceRequest(rs.getInt("id"), rs.getString("description"), rs.getString("priority"),
+						rs.getString("issue_type"));
+				requests.add(request);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
