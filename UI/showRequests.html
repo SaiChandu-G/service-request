@@ -61,14 +61,30 @@
                 </thead>
                 <tbody></tbody>
             </table>
-            <button id="myBtn">Open Modal</button>
-
             <!-- The Modal -->
             <div id="myModal" class="modal">
-                <!-- Modal content -->
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <p>Here is some sample text in the modal.</p>
+                    <form id="updateForm">
+                        <div>
+                            <label id="idLabel">Request Id</label>
+                            <input type="text" name="id" id="id" readonly>
+                        </div>
+                        <div>
+                            <label id="descriptionLabel">Description</label>
+                            <input type="text" id="description" name="description" required>
+                        </div>
+                        <div>
+                            <label id="priorityLabel">Priority</label>
+                            <input type="text" id="priority" name="priority" required>
+                        </div>
+                        <div>
+                            <label id="issueTypeLabel">Issue Type</label>
+                            <input type="text" id="issueType" name="issueType" required>
+                        </div>
+                        <button id="update" type="submit">Update</button>
+                    </form>
                 </div>
             </div>
         </div>

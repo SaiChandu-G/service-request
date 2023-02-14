@@ -1,12 +1,15 @@
 var table = document.getElementById("myTable");
 var tbody = table.getElementsByTagName("tbody")[0];
 
-const url = "http://localhost:10000/request/requests";
+const getUrl = "http://localhost:10000/request/requests";
+//let putUrl = "http://localhost:10000/request/request?";
+
+const employeeId = 1;
 
 document.addEventListener("DOMContentLoaded", (e) => {
     e.preventDefault();
 
-    fetch(url, {
+    fetch(getUrl, {
         method: "GET",
     })
         .then((response) => response.json())
@@ -16,6 +19,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
                     var tr = document.createElement("tr");
 
                     var tdId = document.createElement("td");
+                    console.log(requests[i].id);
                     tdId.innerHTML = requests[i].id;
                     tr.appendChild(tdId);
 
@@ -32,7 +36,14 @@ document.addEventListener("DOMContentLoaded", (e) => {
                     tr.appendChild(tdIssueType);
 
                     var tdEdit = document.createElement("td");
-                    tdEdit.innerHTML = "Edit";
+                    var tdButton = document.createElement("button");
+
+                    tdButton.setAttribute("type", "button");
+                    tdButton.setAttribute('onclick', 'myFunction(' + JSON.stringify(Object.assign(requests[i], { employeeId: employeeId })) + ')');
+                    tdButton.setAttribute("class", "myBtn");
+                    tdButton.textContent = "Edit";
+
+                    tdEdit.appendChild(tdButton);
                     tr.appendChild(tdEdit);
 
                     tbody.appendChild(tr);
@@ -43,22 +54,28 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 })
 
+let existingId = document.getElementById("id");
+let existingDescription = document.getElementById("description");
+let existingPriority = document.getElementById("priority");
+let existingIssueType = document.getElementById("issueType");
+const form = document.querySelector('#updateForm');
 
 // Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+var modal = document.querySelector(".modal");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal
-btn.onclick = function () {
+function myFunction(request) {
+    console.log(request)
     modal.style.display = "block";
+    existingId.value = request.id;
+    existingDescription.value = request.description;
+    existingPriority.value = request.priority;
+    existingIssueType.value = request.issueType;
 }
 
-// When the user clicks on <span> (x), close the modal
 span.onclick = function () {
     modal.style.display = "none";
 }
@@ -69,6 +86,31 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
+
+form.addEventListener('submit', function (event) {
+    event.preventDefault(); // prevent the default form submit action
+
+    const formData = new FormData(form); // create a new FormData object with the form data
+    const description = formData.get('description');
+    const priority = formData.get('priority');
+    const issueType = formData.get('issueType');
+    const id = formData.get('id');
+
+    console.log(description, priority, issueType, id);
+    const putUrl = `http://localhost:10000/request/request?description=${description}&priority=${priority}&issueType=${issueType}&id=${id}&employeeId=${employeeId}`;
+
+    fetch(putUrl, {
+        method: "PUT",
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.status) {
+                alert(data.message);
+            }
+        })
+        .catch((error) => console.error(error));
+    modal.style.display = "none";
+})
 
 
 
