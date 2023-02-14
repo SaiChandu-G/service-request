@@ -35,7 +35,6 @@ public class UpdateRequestDAO {
 				ps2.setInt(4, id);
 				ps2.setInt(5, employeeId);
 				updatedRows = ps2.executeUpdate();
-				System.out.println(updatedRows);
 				if (updatedRows > 0) {
 					response.setStatus(true);
 					response.setMessage("updated service request");

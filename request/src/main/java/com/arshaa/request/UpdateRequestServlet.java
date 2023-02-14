@@ -18,6 +18,13 @@ public class UpdateRequestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
+	protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setHeader("Access-Control-Allow-Origin", "*");
+		resp.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+		resp.setHeader("Access-Control-Allow-Headers", "Content-Type");
+	}
+
+	@Override
 	protected void doPut(HttpServletRequest servletRequest, HttpServletResponse servletResponse)
 			throws ServletException, IOException {
 
@@ -26,6 +33,14 @@ public class UpdateRequestServlet extends HttpServlet {
 		String issueType = servletRequest.getParameter("issueType");
 		int id = Integer.parseInt(servletRequest.getParameter("id"));
 		int employeeId = Integer.parseInt(servletRequest.getParameter("employeeId"));
+
+		servletResponse.addHeader("Access-Control-Allow-Origin", "*");
+		servletResponse.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+		// servletResponse.addHeader("Access-Control-Max-Age", "3600");
+		// servletResponse.addHeader("Access-Control-Allow-Headers",
+		// "x-requested-with");
+		servletResponse.setContentType("application/json");
+		servletResponse.setCharacterEncoding("UTF-8");
 
 		PrintWriter writer = servletResponse.getWriter();
 		Gson gson;
